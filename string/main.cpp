@@ -3,7 +3,10 @@
 int main() {
     String a("Hi");
     String b("Hello");
-    String с(56);
+    String c(56);
 
-    std::cout << String::countString();
+    b.show();
+    c.setString("World");
+    c.show();
+    cout << String::countString();
 }

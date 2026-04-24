@@ -15,6 +15,11 @@ String::String(int size) {
 String::String(const char* str) : String(strlen(str)) {
     strcpy_s(s, strlen(str) + 1, str);
 }
+String::String(String& obj) {
+    int len = strlen(obj.s);
+    s = new char[len + 1];
+    strcpy_s(s, len + 1, obj.s);
+}
 
 String::~String() {
     delete[] s;
@@ -26,7 +31,7 @@ void String::setString(const char* str) {
 }
 
 void String::show(){
-    cout << s;
+    cout << s << endl;
 }
 int String::countString() {
     return count;

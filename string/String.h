@@ -12,6 +12,7 @@ public:
     String();
     String(int size);
     String(const char* str);
+    String(String& obj);
     ~String();
 
     void setString(const char* str);
