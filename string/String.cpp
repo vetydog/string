@@ -15,6 +15,7 @@ String::String(int size) {
 String::String(const char* str) : String(strlen(str)) {
     strcpy_s(s, strlen(str) + 1, str);
 }
+
 String::String(String& obj) {
     int len = strlen(obj.s);
     s = new char[len + 1];
