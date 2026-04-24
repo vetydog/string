@@ -10,19 +10,22 @@ String::String() : String(80) {}
 String::String(int size) {
     if (size <= 0)
         size = 80;
-    s = new char[size + 1];
+    maxSize = size;
+    s = new char[maxSize + 1];
     count++;
 }
 
-String::String(const char* str) : String(strlen(str)) {
-    strcpy_s(s, strlen(str) + 1, str);
+String::String(const char* str) : String(str ? strlen(str) : 80)
+{
+    if (str)
+        strcpy_s(s, maxSize + 1, str);
 }
 
 String::String(String& obj) {
     if (obj.s) {
-        int len = strlen(obj.s);
-        s = new char[len + 1];
-        strcpy_s(s, len + 1, obj.s);
+        maxSize = obj.maxSize;
+        s = new char[maxSize + 1];
+        strcpy_s(s, maxSize + 1, obj.s);
     }
 }
 
@@ -32,7 +35,7 @@ String::~String() {
 }
 
 void String::setString(const char* str) {
-    strcpy_s(s, strlen(str)+ 1, str);
+    strcpy_s(s, maxSize+ 1, str);
 }
 
 void String::show(){

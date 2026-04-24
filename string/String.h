@@ -7,6 +7,7 @@ class String
 {
     char* s;
     static int count;
+    int maxSize;
 
 public:
     String();
