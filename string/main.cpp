@@ -10,5 +10,13 @@ int main() {
     c.setString("World");
     c.show();
     g.show();
-    cout << String::countString();
+    cout << String::countString()<<endl;
+
+
+    String v("sdqcg");
+    String j("rgfas34");
+
+    String f = v * j;
+
+    f.show();
 }
